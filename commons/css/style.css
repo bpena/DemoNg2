@@ -1,0 +1,123 @@
+html {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: url("../images/background_02.png");
+    -ms-background-position-x: center;
+    background-position-x: center;
+}
+
+body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: RGBA(0,0,255,0.15);
+}
+
+.flex {
+    flex: 1;
+}
+
+.column-flex {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.row-flex {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.toobar-logo {
+    background: transparent no-repeat url("../images/logo.png") !important;
+    background-position-y: center !important;
+    -webkit-background-size: contain !important;
+    -moz-background-size: contain !important;
+    -o-background-size: contain !important;
+    background-size: contain !important;
+    color: whitesmoke !important;
+    font-size: 15px !important;
+    padding-left: 30px !important;
+    padding-top: 3px;
+    line-height: 22px;
+}
+
+/* Start override Material Design styles */
+.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
+    background-color: rgba(27, 129, 230, 0.33) !important;
+}
+
+.md-checkbox-focused .md-ink-ripple {
+    background-color: rgba(27, 129, 230, 0.33) !important
+}
+.md-checkbox-background {
+    background-color: rgb(27, 129, 230) !important;
+}
+/* End override Material Design styles */
+
+/* Start login component styles */
+.login-form {
+    background: RGBA(0,0,0,0.75);
+    width: 225px;
+}
+.toolbar-login {
+    background: transparent no-repeat url("../images/logo.png") !important;
+    background-position-y: center !important;
+    color: gainsboro !important;
+    font-size: 18px !important;
+    padding-left: 45px !important;
+}
+.login-form .md-input-placeholder {
+    color: rgba(200, 200, 200, 0.38) !important;
+}
+.login-form .md-input-underline {
+    border-top: 1px solid rgba(200, 200, 200, 0.38) !important;
+}
+.login-form .md-input-underline .md-input-ripple {
+    background-color: rgba(200, 200, 200, 0.38) !important;
+}
+.login-form .md-input-element {
+    color: whitesmoke !important;
+}
+.login-form .additional-section {
+    font-size: 11px;
+    padding: 30px 0 45px 0;
+}
+.login-form .md-checkbox-frame {
+    border: 2px solid rgba(200, 200, 200, 0.38);
+}
+.login-form .md-checkbox-inner-container {
+    width: 15px;
+    height: 15px;
+}
+.login-form [md-button],
+.login-form .md-checkbox-layout .md-checkbox-label {
+    flex: 1;
+    font-size: 11px;
+    line-height: 15px;
+    color: rgba(200, 200, 200, 0.38);
+}
+/*End login component styles */
+
+/* Start dashboard styles */
+.md-toolbar {
+    background-color: #0e1e2b !important;
+    color: whitesmoke !important;
+    font-size: 15px !important;
+    height: 30px !important;
+    max-height: 30px !important;
+    min-height: 30px !important;
+    padding: 0 !important;
+}
+
+.md-toolbar md-toolbar-row {
+    height: 30px !important;
+}
+
+.md-toolbar md-toolbar-row [md-icon-button] {
+    height: 30px !important;
+    width: 30px !important;
+}
+/* End dashboard sytles */

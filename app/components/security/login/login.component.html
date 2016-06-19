@@ -1,0 +1,16 @@
+<md-card class="login-form">
+    <md-toolbar class="toolbar-login">
+        NI5 NAVIGATOR
+    </md-toolbar>
+    <md-card-content>
+        <form class="column-flex">
+            <md-input placeholder="username" [(ngModel)]="username"></md-input>
+            <md-input placeholder="password" [(ngModel)]="password" type="password" ></md-input>
+            <div class="row-flex additional-section">
+                <md-checkbox>Keep me logged in</md-checkbox>
+                <a md-button>I forgot my password</a>
+            </div>
+            <button md-raised-button color="primary" (click)="login()">Login</button>
+        </form>
+    </md-card-content>
+</md-card>
