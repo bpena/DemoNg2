@@ -102,22 +102,66 @@ body {
 /*End login component styles */
 
 /* Start dashboard styles */
+.side-menu{
+    display: flex !important;
+    flex: 1 !important;
+    flex-direction: column !important;
+    box-shadow: 1px 0 10px #000000 !important;
+}
+.md-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background: white;
+}
+md-sidenav-layout > md-content {
+    height: 100%;
+    display: flex !important;
+}
+
 .md-toolbar {
     background-color: #0e1e2b !important;
     color: whitesmoke !important;
-    font-size: 15px !important;
+    /*font-size: 15px !important;
     height: 30px !important;
     max-height: 30px !important;
-    min-height: 30px !important;
-    padding: 0 !important;
+    min-height: 30px !important;*/
+    padding: 0 5px 0 0 !important;
 }
 
 .md-toolbar md-toolbar-row {
-    height: 30px !important;
+    /*height: 30px !important;*/
 }
 
 .md-toolbar md-toolbar-row [md-icon-button] {
-    height: 30px !important;
-    width: 30px !important;
+    /*height: 30px !important;
+    width: 30px !important;*/
+}
+
+.md-toolbar .user-name {
+    line-height: 20px;
+    font-size: 12px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+
+.md-toolbar .md-avatar {
+    max-width: 26px;
+    border-radius: 13px;
+}
+
+.md-toolbar .md-toolbar-last-icon {
+    margin-left: 20px;
 }
 /* End dashboard sytles */
+
+
+
+.dropdown-values {
+    background: black;
+    position: absolute;
+    margin: 16px 0 0 -20px;
+    padding: 15px 10px;
+    width: 100px;
+    box-shadow: 1px 1px 10px black;
+}

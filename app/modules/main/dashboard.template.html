@@ -1,13 +1,15 @@
 <md-sidenav-layout class="row-flex">
-    <md-sidenav #left mode="{{tipo}}" class=".side-menu" layout-padding >
+    <md-sidenav #left mode="{{tipo}}" class="side-menu" layout-padding >
         <md-toolbar class="md-toolbar">Menú</md-toolbar>
-        <p>Esta sección para el menú</p>
-        <p>y también par ael filtro</p>
-        <md-divider></md-divider>
-        <button md-raised-button class="md-raised md-primary"
-                (click)="left.toggle(); printValue()">logout</button>
+        <div class="md-content">
+            <p style="padding: 0 10px;">Esta sección para el menú</p>
+            <p style="padding: 0 10px;">y también par ael filtro</p>
+            <md-divider></md-divider>
+            <button md-raised-button class="md-raised md-primary"
+                    (click)="left.toggle();">logout</button>
+        </div>
     </md-sidenav>
-    <md-content layout-padding>
+    <md-content layout-padding class="md-content">
         <md-toolbar class="md-toolbar">
             <button  md-icon-button class="md-icon-button"
                      (click)="left.toggle()" aria-label="Settings">
@@ -15,16 +17,21 @@
             </button>
             <span class="toobar-logo">NI5 NAVIGATOR</span>
             <span class="flex"></span>
-            <button md-icon-button class="md-icon-button" aria-label="Favorite">
-                <md-icon>favorite</md-icon>
-            </button>
-            <button md-icon-button class="md-icon-button" aria-label="More">
+            <!--<button md-icon-button class="md-icon-button" aria-label="Favorite">-->
+                <!--<md-icon>favorite</md-icon>-->
+            <!--</button>-->
+            <!--<div class="avatar-dropdown" id="icon">-->
+                <!--<span class="user-name">{{username}}</span>-->
+                <!--<img src="/commons/images/foto.jpg" class="md-avatar" />-->
+            <!--</div>-->
+            <dropdown [values]="dropdownValues" (select)="action($event.value)"></dropdown>
+            <button md-icon-button class="md-icon-button md-toolbar-last-icon" aria-label="More">
                 <md-icon>more_vert</md-icon>
             </button>
         </md-toolbar>
 
         <div class="md-content">
-            <md-divider></md-divider>
+            <md-divider class="column-flex"></md-divider>
             <h2>Acá el dashboard</h2>
         </div>
     </md-content>

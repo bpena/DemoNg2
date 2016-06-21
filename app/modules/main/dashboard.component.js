@@ -14,20 +14,31 @@ var card_1 = require("@angular2-material/card");
 var toolbar_1 = require("@angular2-material/toolbar");
 var sidenav_1 = require("@angular2-material/sidenav");
 var icon_1 = require("@angular2-material/icon");
+var security_service_1 = require("../../components/security/security.service");
+var dropdown_component_1 = require("../../components/dropdown.component");
 var DashboardView = (function () {
-    function DashboardView() {
+    function DashboardView(securityService) {
+        this.securityService = securityService;
         this.tipo = 'side';
+        this.dropdownValues = [
+            { value: "value", label: "Logout" }
+        ];
     }
     DashboardView.prototype.ngOnInit = function () {
+        this.session = this.securityService.getSession();
+        this.username = this.session.currentUser ? (this.session.currentUser.firstname + " " + this.session.currentUser.lastname) : "";
+    };
+    DashboardView.prototype.action = function () {
+        this.securityService.logout();
     };
     DashboardView = __decorate([
         core_1.Component({
             selector: "dashboard-view",
             templateUrl: __dirname + '/dashboard.template.html',
-            directives: [button_1.MdButton, card_1.MdCard, icon_1.MdIcon, toolbar_1.MdToolbar, sidenav_1.MD_SIDENAV_DIRECTIVES],
+            directives: [button_1.MdButton, card_1.MdCard, icon_1.MdIcon, toolbar_1.MdToolbar, sidenav_1.MD_SIDENAV_DIRECTIVES, dropdown_component_1.DropdownComponent],
             providers: [icon_1.MdIconRegistry]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [security_service_1.SecurityService])
     ], DashboardView);
     return DashboardView;
 }());
