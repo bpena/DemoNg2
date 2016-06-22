@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var loginView_component_1 = require("./modules/login/loginView.component");
-var security_service_1 = require("./components/security/security.service");
+var router_deprecated_1 = require('@angular/router-deprecated');
 var dashboard_component_1 = require("./modules/main/dashboard.component");
-// import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS}  from '@angular/router-deprecated';
+var loginView_component_1 = require("./modules/loginView/loginView.component");
+var security_service_1 = require("./components/security/security.service");
 var Ni5Component = (function () {
     function Ni5Component(
         // private router : Router,
@@ -23,27 +23,20 @@ var Ni5Component = (function () {
         this.session = this.securityService.getSession();
         // this.securityService.registerCallback(this.updateView);
     };
-    Ni5Component.prototype.updateView = function (session) {
-        // if (this.session.isGuest)
-        //     this.router.navigate(['Login']);
-        // else
-        //     this.router.navigate(['Main']);
-    };
-    Ni5Component.prototype.gotoLogin = function () {
-        // this.router.navigate(['Login']);
-    };
-    Ni5Component.prototype.gotoDashboard = function () {
-        // this.router.navigate(['Main']);
-    };
     Ni5Component = __decorate([
         core_1.Component({
             selector: 'ni5',
-            templateUrl: __dirname + '/ni5.component.html',
-            // directives: [ROUTER_DIRECTIVES],
-            directives: [dashboard_component_1.DashboardView, loginView_component_1.LoginView],
+            // templateUrl:__dirname + '/ni5.component.html',
+            template: '<router-outlet></router-outlet>',
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            // directives: [DashboardView, LoginView],
             // providers:  [SecurityService, ROUTER_PROVIDERS]
             providers: [security_service_1.SecurityService]
-        }), 
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/', name: 'Main', component: dashboard_component_1.DashboardView },
+            { path: '/login', name: 'Login', component: loginView_component_1.LoginView }
+        ]), 
         __metadata('design:paramtypes', [security_service_1.SecurityService])
     ], Ni5Component);
     return Ni5Component;

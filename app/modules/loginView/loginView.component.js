@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var login_component_1 = require("../../components/security/login/login.component");
+var login_component_1 = require("./login/login.component");
 var LoginView = (function () {
     function LoginView() {
     }

@@ -4,10 +4,7 @@ import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdCheckbox} from '@angular2-material/checkbox';
-import {SecurityService} from "../security.service";
-// import { Router, RouterLink } from '@angular/router-deprecated';
-// import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-// import { Http, Headers } from '@angular/http';
+import {SecurityService} from "../../../components/security/security.service";
 
 @Component({
     selector:       'login-form',
@@ -22,7 +19,7 @@ export class LoginForm {
     constructor(
         // public router: Router,
         // public http: Http,
-        public securityService: SecurityService) { }
+        public securityService:SecurityService) { }
 
     login() {
         if (this.securityService.login(this.username, this.password) != null) {

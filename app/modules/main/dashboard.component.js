@@ -14,10 +14,12 @@ var card_1 = require("@angular2-material/card");
 var toolbar_1 = require("@angular2-material/toolbar");
 var sidenav_1 = require("@angular2-material/sidenav");
 var icon_1 = require("@angular2-material/icon");
-var security_service_1 = require("../../components/security/security.service");
 var dropdown_component_1 = require("../../components/dropdown.component");
+var router_deprecated_1 = require("@angular/router-deprecated");
+var security_service_1 = require("../../components/security/security.service");
 var DashboardView = (function () {
-    function DashboardView(securityService) {
+    function DashboardView(router, securityService) {
+        this.router = router;
         this.securityService = securityService;
         this.tipo = 'side';
         this.dropdownValues = [
@@ -26,7 +28,11 @@ var DashboardView = (function () {
     }
     DashboardView.prototype.ngOnInit = function () {
         this.session = this.securityService.getSession();
-        this.username = this.session.currentUser ? (this.session.currentUser.firstname + " " + this.session.currentUser.lastname) : "";
+        if (this.session.isGuest)
+            this.router.navigate(['Login']);
+        else {
+            this.username = this.session.currentUser ? (this.session.currentUser.firstname + " " + this.session.currentUser.lastname) : "";
+        }
     };
     DashboardView.prototype.action = function () {
         this.securityService.logout();
@@ -38,7 +44,7 @@ var DashboardView = (function () {
             directives: [button_1.MdButton, card_1.MdCard, icon_1.MdIcon, toolbar_1.MdToolbar, sidenav_1.MD_SIDENAV_DIRECTIVES, dropdown_component_1.DropdownComponent],
             providers: [icon_1.MdIconRegistry]
         }), 
-        __metadata('design:paramtypes', [security_service_1.SecurityService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, security_service_1.SecurityService])
     ], DashboardView);
     return DashboardView;
 }());

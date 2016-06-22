@@ -18,6 +18,8 @@ body {
     flex: 1;
 }
 
+login-view,
+dashboard-view,
 .column-flex {
     display: flex;
     flex: 1;

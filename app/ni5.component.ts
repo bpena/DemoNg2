@@ -1,23 +1,24 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginView} from "./modules/login/loginView.component";
-import {SecurityService} from "./components/security/security.service";
+import {RouteConfig, ROUTER_DIRECTIVES}  from '@angular/router-deprecated';
 import {Session} from "./components/security/session";
 import {DashboardView} from "./modules/main/dashboard.component";
-// import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS}  from '@angular/router-deprecated';
+import {LoginView} from "./modules/loginView/loginView.component";
+import {SecurityService} from "./components/security/security.service";
 
 @Component({
     selector:   'ni5',
-    templateUrl:__dirname + '/ni5.component.html',
-    // directives: [ROUTER_DIRECTIVES],
-    directives: [DashboardView, LoginView],
+    // templateUrl:__dirname + '/ni5.component.html',
+    template: '<router-outlet></router-outlet>',
+    directives: [ROUTER_DIRECTIVES],
+    // directives: [DashboardView, LoginView],
     // providers:  [SecurityService, ROUTER_PROVIDERS]
     providers:  [SecurityService]
 })
 
-// @RouteConfig([
-//     {path: '/', name: 'Main', component: MainView},
-//     {path: '/login', name: 'Login', component: LoginView}
-// ])
+@RouteConfig([
+    {path: '/', name: 'Main', component: DashboardView},
+    {path: '/login', name: 'Login', component: LoginView}
+])
 
 export class Ni5Component implements OnInit {
     public session : Session;
@@ -29,20 +30,5 @@ export class Ni5Component implements OnInit {
     ngOnInit() {
         this.session = this.securityService.getSession();
         // this.securityService.registerCallback(this.updateView);
-    }
-
-    public updateView(session) {
-        // if (this.session.isGuest)
-        //     this.router.navigate(['Login']);
-        // else
-        //     this.router.navigate(['Main']);
-    }
-
-    gotoLogin() {
-        // this.router.navigate(['Login']);
-    }
-
-    gotoDashboard() {
-        // this.router.navigate(['Main']);
     }
 }

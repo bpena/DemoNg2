@@ -14,10 +14,7 @@ var card_1 = require('@angular2-material/card');
 var input_1 = require('@angular2-material/input');
 var toolbar_1 = require('@angular2-material/toolbar');
 var checkbox_1 = require('@angular2-material/checkbox');
-var security_service_1 = require("../security.service");
-// import { Router, RouterLink } from '@angular/router-deprecated';
-// import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-// import { Http, Headers } from '@angular/http';
+var security_service_1 = require("../../../components/security/security.service");
 var LoginForm = (function () {
     function LoginForm(
         // public router: Router,

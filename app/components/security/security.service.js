@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var mockUser_service_1 = require("./mocks/mockUser.service");
+var router_deprecated_1 = require("@angular/router-deprecated");
 var SecurityService = (function () {
     // private observers: any[] = [];
-    function SecurityService() {
+    function SecurityService(router) {
+        this.router = router;
         this.session = {
             currentUser: null,
             isGuest: true
@@ -44,15 +46,21 @@ var SecurityService = (function () {
     SecurityService.prototype.logout = function () {
         var _this = this;
         this.currentUser = null;
-        setTimeout(function () { _this.updateSession(); }, 1000);
+        setTimeout(function () {
+            _this.updateSession();
+        }, 1000);
     };
     SecurityService.prototype.updateSession = function () {
         this.session.currentUser = this.currentUser;
         this.session.isGuest = this.currentUser == null;
+        if (this.session.isGuest)
+            this.router.navigate(['Login']);
+        else
+            this.router.navigate(['Main']);
     };
     SecurityService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], SecurityService);
     return SecurityService;
 }());
